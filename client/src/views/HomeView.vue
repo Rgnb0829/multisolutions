@@ -13,10 +13,10 @@
           Fimosa Technology Indonesia — Divisi MS
         </div>
         <h1 class="hero__title">
-          Company profile <span class="gradient-text">MS</span>
+          MultiSolutions <span class="gradient-text"><br>By Fimosa</span>
         </h1>
         <p class="hero__subtitle">
-          Divisi Multi-Solution dari Fimosa Technology Indonesia.
+          One-Stop Digital Solution.
         </p>
         <p class="hero__desc">
           Menghadirkan layanan digital terpadu yang menggabungkan kekuatan <strong>Software House</strong>
@@ -54,9 +54,9 @@
               About Us
             </div>
             <h2 class="about__title">
-              website berisikkan 3 page<br/>
-              <span class="gradient-text">Home page: About us,</span><br/>
-              profile singkat Fimosa Company
+              Menghadirkan Solusi<br/>
+              <span class="gradient-text">kreatif dan inovatif</span><br/>
+              untuk perusahaan anda
             </h2>
             <p class="about__lead">
               Fimosa Multi-Solution (MS) adalah divisi hibrida dari <strong>Fimosa Company</strong> yang
