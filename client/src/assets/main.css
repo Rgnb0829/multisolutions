@@ -1,0 +1,251 @@
+/* ============================================
+   FIMOSA MULTI-SOLUTION — Global CSS
+   Design System: Dark premium corporate theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* ── CSS Custom Properties ─────────────────── */
+:root {
+  /* Brand Colors */
+  --brand-primary: #5B6BF8;
+  --brand-primary-light: #7B8BFF;
+  --brand-primary-dark: #3A4BE0;
+  --brand-secondary: #00D4AA;
+  --brand-accent: #FF6B6B;
+  --brand-gold: #F5A623;
+
+  /* Dark Theme */
+  --bg-base: #080C18;
+  --bg-surface: #0E1420;
+  --bg-card: #141B2D;
+  --bg-card-hover: #1A2238;
+  --bg-glass: rgba(20, 27, 45, 0.7);
+  --bg-glass-light: rgba(255,255,255,0.04);
+
+  /* Text */
+  --text-primary: #F0F2FF;
+  --text-secondary: #A0AACC;
+  --text-muted: #606890;
+  --text-on-brand: #FFFFFF;
+
+  /* Borders */
+  --border-subtle: rgba(91, 107, 248, 0.15);
+  --border-default: rgba(91, 107, 248, 0.25);
+  --border-strong: rgba(91, 107, 248, 0.5);
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #5B6BF8 0%, #00D4AA 100%);
+  --gradient-hero: linear-gradient(135deg, #080C18 0%, #0E1420 50%, #141B2D 100%);
+  --gradient-card: linear-gradient(145deg, #141B2D 0%, #0E1420 100%);
+  --gradient-glow: radial-gradient(ellipse at center, rgba(91, 107, 248, 0.15) 0%, transparent 70%);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
+  --shadow-brand: 0 8px 32px rgba(91, 107, 248, 0.25);
+  --shadow-brand-lg: 0 16px 48px rgba(91, 107, 248, 0.35);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* Spacing */
+  --section-py: 100px;
+  --container-max: 1200px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ── Reset & Base ───────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; outline: none; font-family: inherit; }
+input, textarea { font-family: inherit; }
+
+/* ── Typography ─────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ── Layout Utilities ───────────────────────── */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: var(--section-py) 0;
+}
+
+/* ── Gradient Text ──────────────────────────── */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Badge ──────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(91, 107, 248, 0.12);
+  border: 1px solid var(--border-default);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--brand-primary-light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Buttons ────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--gradient-brand);
+  color: white;
+  box-shadow: var(--shadow-brand);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-brand-lg);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--brand-primary-light);
+  border: 1.5px solid var(--border-strong);
+}
+.btn-outline:hover {
+  background: rgba(91,107,248,0.1);
+  border-color: var(--brand-primary);
+  transform: translateY(-2px);
+}
+
+/* ── Card ───────────────────────────────────── */
+.card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  transition: all var(--transition-base);
+}
+.card:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-brand);
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+}
+
+/* ── Section Header ─────────────────────────── */
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Divider ────────────────────────────────── */
+.divider {
+  width: 64px;
+  height: 4px;
+  background: var(--gradient-brand);
+  border-radius: var(--radius-pill);
+  margin: 20px auto 0;
+}
+
+/* ── Glow Effect ────────────────────────────── */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* ── Page Transition ────────────────────────── */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* ── Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-primary); }
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --section-py: 64px;
+  }
+  .container { padding: 0 16px; }
+}
