@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import ServicesView from '@/views/ServicesView.vue'
+import SoftwareEngineeringView from '@/views/SoftwareEngineeringView.vue'
+import SoftwarePortfolioView from '@/views/SoftwarePortfolioView.vue'
+import CreativeStudioView from '@/views/CreativeStudioView.vue'
+import CreativePortfolioView from '@/views/CreativePortfolioView.vue'
 import ContactView from '@/views/ContactView.vue'
 
 const routes = [
@@ -9,17 +12,48 @@ const routes = [
     name: 'Home',
     component: HomeView,
     meta: {
-      title: 'Beranda | Fimosa Multi-Solution',
-      description: 'Company profile MS — Divisi Multi-Solution dari Fimosa Technology Indonesia, menghadirkan layanan Software House dan Creative Studio.'
+      title: 'Beranda | Multi-Solution — A Division of Fimosa Technology Indonesia',
+      description: 'Multi-Solution adalah divisi hibrida Fimosa Technology Indonesia yang menghadirkan solusi Software Engineering dan Creative Studio untuk korporasi, pemerintah, dan startup.'
     }
   },
   {
     path: '/services',
-    name: 'Services',
-    component: ServicesView,
+    redirect: '/services/software-engineering'
+  },
+  {
+    path: '/services/software-engineering',
+    name: 'SoftwareEngineering',
+    component: SoftwareEngineeringView,
     meta: {
-      title: 'Layanan | Fimosa Multi-Solution',
-      description: 'Layanan Software House dan Creative Studio dari Fimosa Multi-Solution untuk korporasi, pemerintah, dan startup.'
+      title: 'Software Engineering | Multi-Solution — Fimosa Technology Indonesia',
+      description: 'Layanan Software Engineering profesional dari Multi-Solution: pengembangan website, sistem informasi enterprise, dan custom ERP dengan arsitektur terukur dan protokol keamanan industry-standard.'
+    }
+  },
+  {
+    path: '/services/software-engineering/portfolio',
+    name: 'SoftwarePortfolio',
+    component: SoftwarePortfolioView,
+    meta: {
+      title: 'Portfolio Software Engineering | Multi-Solution',
+      description: 'Studi kasus dan portofolio proyek Software Engineering dari Multi-Solution — solusi enterprise yang telah diimplementasikan untuk korporasi dan institusi pemerintah.'
+    }
+  },
+  {
+    path: '/services/creative-studio',
+    name: 'CreativeStudio',
+    component: CreativeStudioView,
+    meta: {
+      title: 'Creative Studio | Multi-Solution — Fimosa Technology Indonesia',
+      description: 'Layanan Creative Studio profesional dari Multi-Solution: desain logo, identitas merek, ilustrasi digital, dan aset grafis untuk korporasi dan startup.'
+    }
+  },
+  {
+    path: '/services/creative-studio/portfolio',
+    name: 'CreativePortfolio',
+    component: CreativePortfolioView,
+    meta: {
+      title: 'Portfolio Creative Studio | Multi-Solution',
+      description: 'Galeri karya Creative Studio Multi-Solution — logo, branding, ilustrasi, dan aset visual untuk berbagai industri.'
     }
   },
   {
@@ -27,8 +61,8 @@ const routes = [
     name: 'Contact',
     component: ContactView,
     meta: {
-      title: 'Kontak | Fimosa Multi-Solution',
-      description: 'Kontak resmi Fimosa Multi-Solution. Temukan lokasi kantor Fimosa Technology Indonesia dan hubungi tim kami.'
+      title: 'Hubungi Kami | Multi-Solution — Fimosa Technology Indonesia',
+      description: 'Konsultasikan kebutuhan digital Anda bersama tim Multi-Solution. Temukan lokasi kantor Fimosa Technology Indonesia dan ajukan inquiry proyek Anda.'
     }
   },
   {
@@ -49,7 +83,7 @@ const router = createRouter({
 
 // Update page title & meta on route change
 router.afterEach((to) => {
-  document.title = to.meta.title || 'Fimosa Multi-Solution'
+  document.title = to.meta.title || 'Multi-Solution | Fimosa Technology Indonesia'
   const metaDesc = document.querySelector('meta[name="description"]')
   if (metaDesc) metaDesc.setAttribute('content', to.meta.description || '')
 })

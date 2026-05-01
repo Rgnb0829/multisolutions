@@ -242,10 +242,238 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--brand-primary); }
 
+/* ── Corporate Palette Variables ────────────── */
+:root {
+  --corp-primary: #2E3A8C;
+  --corp-primary-light: #4A6FA5;
+  --corp-accent: #5B8DEF;
+  --corp-surface: #0A1628;
+  --corp-surface-2: #0F1E38;
+  --corp-card: #111D35;
+  --corp-border: rgba(74, 111, 165, 0.25);
+  --corp-border-strong: rgba(74, 111, 165, 0.5);
+  --corp-gradient: linear-gradient(135deg, #2E3A8C 0%, #4A6FA5 100%);
+  --corp-gradient-hero: linear-gradient(135deg, #0A1628 0%, #0F1E38 50%, #111D35 100%);
+  --corp-glow: rgba(74, 111, 165, 0.2);
+  --corp-shadow: 0 8px 32px rgba(46, 58, 140, 0.3);
+
+  /* Creative Palette */
+  --creative-primary: #00D4AA;
+  --creative-accent: #FF6B9D;
+  --creative-accent-2: #A855F7;
+  --creative-surface: #0D1A1E;
+  --creative-surface-2: #0F2028;
+  --creative-card: #132028;
+  --creative-border: rgba(0, 212, 170, 0.2);
+  --creative-border-strong: rgba(0, 212, 170, 0.45);
+  --creative-gradient: linear-gradient(135deg, #00D4AA 0%, #FF6B9D 100%);
+  --creative-gradient-hero: linear-gradient(135deg, #0D1A1E 0%, #0F2028 50%, #132028 100%);
+  --creative-glow: rgba(0, 212, 170, 0.15);
+  --creative-shadow: 0 8px 32px rgba(0, 212, 170, 0.2);
+}
+
+/* ── Palette Section Utilities ──────────────── */
+.palette-corporate {
+  --section-bg: var(--corp-surface);
+  --section-accent: var(--corp-accent);
+  --section-border: var(--corp-border);
+  --section-card-bg: var(--corp-card);
+  background: var(--corp-surface);
+}
+.palette-creative {
+  --section-bg: var(--creative-surface);
+  --section-accent: var(--creative-primary);
+  --section-border: var(--creative-border);
+  --section-card-bg: var(--creative-card);
+  background: var(--creative-surface);
+}
+
+/* ── Gradient Text Variants ─────────────────── */
+.gradient-text-corp {
+  background: var(--corp-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-creative {
+  background: var(--creative-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Badge Variants ─────────────────────────── */
+.badge-corp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(46, 58, 140, 0.2);
+  border: 1px solid var(--corp-border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--corp-accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-creative {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 212, 170, 0.1);
+  border: 1px solid var(--creative-border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--creative-primary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Portfolio Card ──────────────────────────── */
+.portfolio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-brand);
+}
+.portfolio-card.corp-card {
+  border-color: var(--corp-border);
+}
+.portfolio-card.corp-card:hover {
+  border-color: var(--corp-border-strong);
+  box-shadow: var(--corp-shadow);
+}
+.portfolio-card.creative-card {
+  border-color: var(--creative-border);
+}
+.portfolio-card.creative-card:hover {
+  border-color: var(--creative-border-strong);
+  box-shadow: var(--creative-shadow);
+}
+
+/* ── Filter Chips ────────────────────────────── */
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+.chip {
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.chip:hover, .chip.active {
+  background: rgba(91,107,248,0.12);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary-light);
+}
+.chip-corp.active {
+  background: rgba(46, 58, 140, 0.2);
+  border-color: var(--corp-accent);
+  color: var(--corp-accent);
+}
+.chip-creative.active {
+  background: rgba(0, 212, 170, 0.12);
+  border-color: var(--creative-primary);
+  color: var(--creative-primary);
+}
+
+/* ── Gallery Grid ────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+.gallery-item:hover .gallery-item__overlay { opacity: 1; }
+
+/* ── Case Study Card ─────────────────────────── */
+.case-study-card {
+  background: var(--corp-card);
+  border: 1px solid var(--corp-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all var(--transition-base);
+}
+.case-study-card:hover {
+  border-color: var(--corp-border-strong);
+  box-shadow: var(--corp-shadow);
+  transform: translateY(-4px);
+}
+.case-study-metric {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--corp-border);
+}
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.metric-value {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: var(--corp-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.metric-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 /* ── Responsive ─────────────────────────────── */
 @media (max-width: 768px) {
   :root {
     --section-py: 64px;
   }
   .container { padding: 0 16px; }
+  .gallery-grid { grid-template-columns: 1fr; }
 }
+
