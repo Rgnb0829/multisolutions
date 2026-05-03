@@ -1,7 +1,7 @@
 <template>
-  <div id="app-wrapper">
+  <div class="flex flex-col min-h-screen bg-base">
     <AppNavbar />
-    <main>
+    <main class="flex-1">
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
           <component :is="Component" />
@@ -16,15 +16,3 @@
 import AppNavbar from '@/components/common/AppNavbar.vue'
 import AppFooter from '@/components/common/AppFooter.vue'
 </script>
-
-<style scoped>
-#app-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-}
-</style>

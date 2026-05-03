@@ -1,153 +1,150 @@
 <template>
-  <div class="contact-page">
-    <!-- ── PAGE HERO ─────────────────────────────── -->
-    <section class="page-hero">
-      <div class="hero-glow"></div>
-      <div class="container">
-        <div class="badge" style="margin-bottom:20px">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.76 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Hubungi Kami
-        </div>
-        <h1 class="page-hero__title">
-          Contact page: <span class="gradient-text">Kontak resmi fimosa</span>
-        </h1>
-        <p class="page-hero__sub">
-          map point kantor fimosa technology indonesia
-        </p>
+  <div class="bg-base">
+    <!-- HERO -->
+    <section class="relative pt-32 pb-16 overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="grid-lines"></div>
+        <div class="glow-orb w-[500px] h-[500px] bg-teal top-[-150px] right-[-150px]" style="opacity:0.08"></div>
+      </div>
+      <div class="container-ms relative z-10">
+        <ScrollReveal>
+          <SectionBadge variant="teal" :dot="true" class="mb-6">Hubungi Kami</SectionBadge>
+          <h1 class="font-heading font-black text-4xl md:text-6xl leading-tight mb-4">
+            Let's Build Something<br/><span class="gradient-text">Extraordinary Together</span>
+          </h1>
+          <p class="text-text-secondary text-xl max-w-2xl mb-0">
+            Ceritakan kebutuhan Anda — kami akan merespons dalam 1 hari kerja dengan roadmap awal yang konkret.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
 
-    <!-- ── CONTACT INFO CARDS ────────────────────── -->
-    <section class="section contact-info-section">
-      <div class="container">
-        <div class="contact-info-grid">
-          <div class="info-card" v-for="c in contactDetails" :key="c.label">
-            <div class="info-card__icon">{{ c.icon }}</div>
-            <div>
-              <h3>{{ c.label }}</h3>
-              <p v-html="c.value"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- MAIN CONTENT -->
+    <section class="pb-24">
+      <div class="container-ms">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
-    <!-- ── MAIN CONTENT: FORM + MAP ──────────────── -->
-    <section class="section contact-main">
-      <div class="container">
-        <div class="contact-grid">
+          <!-- Left: Contact Info -->
+          <div class="lg:col-span-2 flex flex-col gap-5">
+            <ScrollReveal>
+              <div class="bento-card">
+                <div class="w-11 h-11 rounded-xl bg-teal/10 border border-teal/25 flex items-center justify-center text-xl mb-4">📧</div>
+                <h3 class="font-heading font-bold text-base text-text-primary mb-1">Email</h3>
+                <a href="mailto:ms@fimosa.id" class="text-teal text-sm hover:text-teal-light transition-colors duration-150">operation@fimosa.id</a>
+                <p class="text-text-muted text-xs mt-1">Respons dalam 1 hari kerja</p>
+              </div>
+            </ScrollReveal>
 
-          <!-- LEFT: Contact Form -->
-          <div class="form-col">
-            <h2 class="form-title">Kirim <span class="gradient-text">Pesan</span></h2>
-            <p class="form-subtitle">Isi formulir di bawah ini. Tim kami akan merespons dalam 1×24 jam kerja.</p>
+            <ScrollReveal :delay="1">
+              <div class="bento-card">
+                <div class="w-11 h-11 rounded-xl bg-teal/10 border border-teal/25 flex items-center justify-center text-xl mb-4">💬</div>
+                <h3 class="font-heading font-bold text-base text-text-primary mb-1">WhatsApp</h3>
+                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="text-teal text-sm hover:text-teal-light transition-colors duration-150">+62 882-1650-6429</a>
+                <p class="text-text-muted text-xs mt-1">Senin–Jumat, 09.00–17.00 WIB</p>
+              </div>
+            </ScrollReveal>
 
-            <!-- Success Alert -->
-            <transition name="fade">
-              <div v-if="submitStatus === 'success'" class="alert alert--success">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                {{ submitMessage }}
+            <ScrollReveal :delay="2">
+              <div class="bento-card">
+                <div class="w-11 h-11 rounded-xl bg-teal/10 border border-teal/25 flex items-center justify-center text-xl mb-4">📍</div>
+                <h3 class="font-heading font-bold text-base text-text-primary mb-1">Kantor</h3>
+                <p class="text-text-secondary text-sm leading-relaxed">
+                  Gedung HQ Senopati, Jl. Panembahan Senopati No.17, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55121
+                </p>
               </div>
-            </transition>
-            <!-- Error Alert -->
-            <transition name="fade">
-              <div v-if="submitStatus === 'error'" class="alert alert--error">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                {{ submitMessage }}
-              </div>
-            </transition>
+            </ScrollReveal>
 
-            <form class="contact-form" @submit.prevent="handleSubmit" novalidate>
-              <div class="form-row">
-                <div class="form-group" :class="{ 'form-group--error': errors.name }">
-                  <label for="contact-name">Nama Lengkap *</label>
-                  <input id="contact-name" v-model="form.name" type="text" placeholder="Masukkan nama Anda" @blur="validateField('name')" />
-                  <span v-if="errors.name" class="error-msg">{{ errors.name }}</span>
-                </div>
-                <div class="form-group" :class="{ 'form-group--error': errors.email }">
-                  <label for="contact-email">Alamat Email *</label>
-                  <input id="contact-email" v-model="form.email" type="email" placeholder="nama@perusahaan.com" @blur="validateField('email')" />
-                  <span v-if="errors.email" class="error-msg">{{ errors.email }}</span>
-                </div>
+            <!-- Map embed -->
+            <ScrollReveal :delay="3">
+              <div class="rounded-xl overflow-hidden border border-border-subtle h-52">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.891983794849!2d110.36701937571672!3d-7.801259177441871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a575656fbddf1%3A0x4b6d27cf13253f34!2sHQ%20Senopati!5e0!3m2!1sen!2sid!4v1777804674190!5m2!1sen!2sid"
+                width="800" 
+                height="600" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
               </div>
-              <div class="form-group">
-                <label for="contact-subject">Subjek</label>
-                <input id="contact-subject" v-model="form.subject" type="text" placeholder="Topik yang ingin dibicarakan" />
-              </div>
-              <div class="form-group" :class="{ 'form-group--error': errors.message }">
-                <label for="contact-message">Pesan *</label>
-                <textarea id="contact-message" v-model="form.message" rows="6" placeholder="Ceritakan kebutuhan proyek Anda..." @blur="validateField('message')"></textarea>
-                <span v-if="errors.message" class="error-msg">{{ errors.message }}</span>
-              </div>
-
-              <!-- Service Interest -->
-              <div class="form-group">
-                <label>Layanan yang Diminati</label>
-                <div class="service-chips">
-                  <button type="button" class="chip" :class="{ 'chip--active': form.services.includes(s) }" v-for="s in serviceOptions" :key="s" @click="toggleService(s)">{{ s }}</button>
-                </div>
-              </div>
-
-              <button type="submit" class="btn btn-primary submit-btn" :disabled="isSubmitting">
-                <span v-if="!isSubmitting">
-                  Kirim Pesan
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </span>
-                <span v-else class="loading-dots">Mengirim<span>.</span><span>.</span><span>.</span></span>
-              </button>
-            </form>
+              <p class="text-xs text-text-muted text-center mt-2">PT Fimosa Technology Indonesia — Yogyakarta, Indonesia</p>
+            </ScrollReveal>
           </div>
 
-          <!-- RIGHT: Map + Quick Info -->
-          <div class="map-col">
-            <h2 class="form-title">Lokasi <span class="gradient-text">Kantor</span></h2>
-            <p class="form-subtitle">map point kantor fimosa technology indonesia</p>
+          <!-- Right: Inquiry Form -->
+          <div class="lg:col-span-3">
+            <ScrollReveal :delay="1">
+              <div class="bento-card border-teal/20 hover:border-teal/35 p-8 md:p-10">
+                <h2 class="font-heading font-bold text-2xl mb-1 text-text-primary">Project Inquiry</h2>
+                <p class="text-text-muted text-sm mb-8">Isi formulir di bawah dan tim kami akan menghubungi Anda secepatnya.</p>
 
-            <!-- Google Maps Embed — Jl. Pluit Raya area, Jakarta (demo point) -->
-            <div class="map-wrapper">
-              <iframe
-                title="Fimosa Technology Indonesia Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.42522432!2d106.6894!3d-6.2088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1714490000000"
-                width="100%"
-                height="360"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-              <div class="map-overlay">
-                <div class="map-pin">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  Fimosa Technology Indonesia — Jakarta
+                <!-- Success State -->
+                <div v-if="submitted" class="text-center py-12">
+                  <div class="text-5xl mb-4">✅</div>
+                  <h3 class="font-heading font-bold text-xl mb-2 text-text-primary">Pesan Terkirim!</h3>
+                  <p class="text-text-muted text-sm mb-6">Tim kami akan menghubungi Anda dalam 1 hari kerja.</p>
+                  <button @click="submitted = false" class="btn-outline-ms text-sm px-5 py-2">Kirim Pesan Lain</button>
                 </div>
-              </div>
-            </div>
 
-            <!-- Office Hours -->
-            <div class="office-hours">
-              <h4>🕐 Jam Operasional</h4>
-              <div class="hours-grid">
-                <div class="hours-row" v-for="h in officeHours" :key="h.day">
-                  <span class="hours-day">{{ h.day }}</span>
-                  <span class="hours-time" :class="{ 'hours-time--closed': h.time === 'Tutup' }">{{ h.time }}</span>
-                </div>
-              </div>
-            </div>
+                <!-- Form -->
+                <form v-else @submit.prevent="handleSubmit" class="flex flex-col gap-5">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label class="form-label">Nama Lengkap *</label>
+                      <input v-model="form.name" type="text" required class="form-input" placeholder="Budi Santoso" id="contact-name" />
+                      <p v-if="errors.name" class="text-red-400 text-xs mt-1">{{ errors.name }}</p>
+                    </div>
+                    <div>
+                      <label class="form-label">Email *</label>
+                      <input v-model="form.email" type="email" required class="form-input" placeholder="budi@perusahaan.com" id="contact-email" />
+                      <p v-if="errors.email" class="text-red-400 text-xs mt-1">{{ errors.email }}</p>
+                    </div>
+                  </div>
 
-            <!-- Social Quick Links -->
-            <div class="social-quick">
-              <p class="social-quick__label">Terhubung Juga Via</p>
-              <div class="social-quick__btns">
-                <a href="#" class="sq-btn sq-btn--wa">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                  WhatsApp
-                </a>
-                <a href="mailto:info@fimosa-ms.co.id" class="sq-btn sq-btn--email">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                  Email Langsung
-                </a>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label class="form-label">Nama Perusahaan</label>
+                      <input v-model="form.company" type="text" class="form-input" placeholder="PT Maju Bersama" id="contact-company" />
+                    </div>
+                    <div>
+                      <label class="form-label">Layanan yang Diminati *</label>
+                      <select v-model="form.service_type" required class="form-input" id="contact-service">
+                        <option value="" disabled>Pilih layanan...</option>
+                        <option value="Software House">Software House</option>
+                        <option value="Creative Studio">Creative Studio</option>
+                        <option value="Both">Software House + Creative Studio</option>
+                        <option value="Consultation">Konsultasi Umum</option>
+                      </select>
+                      <p v-if="errors.service_type" class="text-red-400 text-xs mt-1">{{ errors.service_type }}</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="form-label">Deskripsi Proyek *</label>
+                    <textarea
+                      v-model="form.message" required rows="5"
+                      class="form-input resize-none"
+                      placeholder="Ceritakan kebutuhan Anda secara singkat — jenis sistem/desain yang dibutuhkan, skala bisnis, dan timeline yang diharapkan..."
+                      id="contact-message"
+                    ></textarea>
+                    <p v-if="errors.message" class="text-red-400 text-xs mt-1">{{ errors.message }}</p>
+                  </div>
+
+                  <p v-if="serverError" class="text-red-400 text-sm p-3 rounded-lg bg-red-500/10 border border-red-500/20">{{ serverError }}</p>
+
+                  <button type="submit" :disabled="loading" class="btn-primary-ms justify-center text-base py-3.5" id="contact-submit">
+                    <svg v-if="loading" class="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                    </svg>
+                    {{ loading ? 'Mengirim...' : 'Kirim Inquiry' }}
+                    <svg v-if="!loading" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                  <p class="text-xs text-text-muted text-center">
+                    Dengan mengirim formulir ini, Anda menyetujui bahwa kami dapat menghubungi Anda terkait inquiry ini.
+                  </p>
+                </form>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>
@@ -158,261 +155,49 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import axios from 'axios'
+import ScrollReveal from '@/components/ui/ScrollReveal.vue'
+import SectionBadge from '@/components/ui/SectionBadge.vue'
 
-// Form state
-const form = reactive({ name: '', email: '', subject: '', message: '', services: [] })
-const errors = reactive({ name: '', email: '', message: '' })
-const isSubmitting = ref(false)
-const submitStatus = ref(null) // 'success' | 'error' | null
-const submitMessage = ref('')
+const form = reactive({ name: '', email: '', company: '', service_type: '', message: '' })
+const errors = reactive({})
+const loading = ref(false)
+const submitted = ref(false)
+const serverError = ref('')
 
-const serviceOptions = ['Software House', 'Custom ERP', 'Website', 'Creative Studio', 'Logo & Branding', 'Konsultasi']
-
-const toggleService = (s) => {
-  const idx = form.services.indexOf(s)
-  if (idx > -1) form.services.splice(idx, 1)
-  else form.services.push(s)
-}
-
-const validateField = (field) => {
-  if (field === 'name') errors.name = form.name.trim() ? '' : 'Nama wajib diisi.'
-  if (field === 'email') {
-    if (!form.email.trim()) errors.email = 'Email wajib diisi.'
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = 'Format email tidak valid.'
-    else errors.email = ''
-  }
-  if (field === 'message') errors.message = form.message.trim() ? '' : 'Pesan wajib diisi.'
-}
-
-const validateAll = () => {
-  validateField('name'); validateField('email'); validateField('message')
-  return !errors.name && !errors.email && !errors.message
+const validate = () => {
+  Object.keys(errors).forEach(k => delete errors[k])
+  let valid = true
+  if (!form.name || form.name.trim().length < 2) { errors.name = 'Nama minimal 2 karakter.'; valid = false }
+  if (!form.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { errors.email = 'Masukkan alamat email yang valid.'; valid = false }
+  if (!form.service_type) { errors.service_type = 'Pilih layanan yang diminati.'; valid = false }
+  if (!form.message || form.message.trim().length < 10) { errors.message = 'Deskripsi minimal 10 karakter.'; valid = false }
+  return valid
 }
 
 const handleSubmit = async () => {
-  if (!validateAll()) return
-  isSubmitting.value = true
-  submitStatus.value = null
+  if (!validate()) return
+  loading.value = true
+  serverError.value = ''
   try {
-    const res = await axios.post('/api/contact', {
-      name: form.name,
-      email: form.email,
-      subject: form.subject || form.services.join(', ') || 'Pertanyaan Umum',
-      message: form.message
-    })
-    submitStatus.value = 'success'
-    submitMessage.value = res.data.message
-    // Reset form
-    Object.assign(form, { name: '', email: '', subject: '', message: '', services: [] })
+    await axios.post('/api/contact', form)
+    submitted.value = true
+    Object.assign(form, { name: '', email: '', company: '', service_type: '', message: '' })
   } catch (err) {
-    submitStatus.value = 'error'
-    submitMessage.value = err.response?.data?.message || 'Terjadi kesalahan. Silakan coba lagi.'
+    serverError.value = err?.response?.data?.message || 'Terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung.'
   } finally {
-    isSubmitting.value = false
-    setTimeout(() => { submitStatus.value = null }, 7000)
+    loading.value = false
   }
 }
-
-const contactDetails = [
-  { icon: '📍', label: 'Alamat Kantor', value: 'Fimosa Technology Indonesia<br/>Jakarta, Indonesia' },
-  { icon: '📧', label: 'Email Resmi', value: 'info@fimosa-ms.co.id<br/>support@fimosa-ms.co.id' },
-  { icon: '📞', label: 'Telepon', value: '+62 21 xxxx xxxx<br/>+62 812 xxxx xxxx (WA)' },
-  { icon: '🕐', label: 'Jam Kerja', value: 'Senin – Jumat<br/>08:00 – 17:00 WIB' },
-]
-
-const officeHours = [
-  { day: 'Senin – Jumat', time: '08:00 – 17:00 WIB' },
-  { day: 'Sabtu', time: '09:00 – 13:00 WIB' },
-  { day: 'Minggu', time: 'Tutup' },
-]
 </script>
 
 <style scoped>
-/* Hero */
-.page-hero {
-  position: relative;
-  padding: 160px 0 56px;
-  overflow: hidden;
+.form-label {
+  @apply block text-sm font-medium text-text-secondary mb-2;
 }
-.hero-glow {
-  position: absolute;
-  top: -100px; right: -100px;
-  width: 500px; height: 500px;
-  background: radial-gradient(ellipse, rgba(91,107,248,0.2) 0%, transparent 65%);
-  pointer-events: none;
-}
-.page-hero__title {
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-  font-weight: 900;
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-.page-hero__sub {
-  font-size: 1rem;
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-/* Contact Info Cards */
-.contact-info-section { padding-top: 0; }
-.contact-info-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-.info-card {
-  background: var(--gradient-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  transition: all var(--transition-base);
-}
-.info-card:hover { border-color: var(--border-default); transform: translateY(-3px); box-shadow: var(--shadow-brand); }
-.info-card__icon { font-size: 1.6rem; flex-shrink: 0; }
-.info-card h3 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 6px; }
-.info-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
-
-/* Main Grid */
-.contact-main { background: var(--bg-surface); }
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
-}
-.form-title { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 8px; }
-.form-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; font-style: italic; }
-
-/* Alerts */
-.alert {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  border-radius: var(--radius-md);
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 24px;
-}
-.alert--success { background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3); color: #00D4AA; }
-.alert--error { background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3); color: #FF6B6B; }
-
-/* Form */
-.contact-form { display: flex; flex-direction: column; gap: 20px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.form-group { display: flex; flex-direction: column; gap: 8px; }
-.form-group label { font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); }
-.form-group input,
-.form-group textarea {
-  background: var(--bg-card);
-  border: 1.5px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-  transition: border-color var(--transition-fast);
-  outline: none;
-  resize: vertical;
-}
-.form-group input:focus,
-.form-group textarea:focus { border-color: var(--brand-primary); box-shadow: 0 0 0 3px rgba(91,107,248,0.12); }
-.form-group--error input,
-.form-group--error textarea { border-color: #FF6B6B; }
-.error-msg { font-size: 0.78rem; color: #FF6B6B; }
-
-/* Service chips */
-.service-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip {
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  background: var(--bg-glass-light);
-  border: 1.5px solid var(--border-subtle);
-  color: var(--text-muted);
-  font-size: 0.82rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-.chip:hover { border-color: var(--border-default); color: var(--text-primary); }
-.chip--active { background: rgba(91,107,248,0.12); border-color: var(--brand-primary); color: var(--brand-primary-light); }
-
-.submit-btn { width: 100%; justify-content: center; padding: 16px; font-size: 1rem; }
-.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
-.loading-dots span { animation: blink 1.4s infinite; }
-.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
-.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes blink { 0%,80%,100% { opacity: 0; } 40% { opacity: 1; } }
-
-/* Map */
-.map-wrapper {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  margin-bottom: 24px;
-}
-.map-overlay {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 12px 16px;
-  background: linear-gradient(transparent, rgba(8,12,24,0.9));
-}
-.map-pin {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: var(--brand-primary-light);
-  font-weight: 600;
-}
-
-/* Office Hours */
-.office-hours {
-  background: var(--gradient-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  margin-bottom: 20px;
-}
-.office-hours h4 { font-size: 0.95rem; margin-bottom: 16px; }
-.hours-grid { display: flex; flex-direction: column; gap: 10px; }
-.hours-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; }
-.hours-day { color: var(--text-muted); }
-.hours-time { color: var(--brand-secondary); font-weight: 600; }
-.hours-time--closed { color: var(--text-muted); font-weight: 400; }
-
-/* Social Quick */
-.social-quick__label { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
-.social-quick__btns { display: flex; gap: 12px; }
-.sq-btn {
-  flex: 1;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  font-weight: 600; font-size: 0.88rem;
-  transition: all var(--transition-base);
-  border: 1.5px solid;
-}
-.sq-btn--wa { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.3); color: #25D366; }
-.sq-btn--wa:hover { background: rgba(37,211,102,0.18); transform: translateY(-2px); }
-.sq-btn--email { background: rgba(91,107,248,0.1); border-color: var(--border-default); color: var(--brand-primary-light); }
-.sq-btn--email:hover { background: rgba(91,107,248,0.18); transform: translateY(-2px); }
-
-/* Transitions */
-.fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease, transform 0.3s ease; }
-.fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(-8px); }
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .contact-info-grid { grid-template-columns: 1fr 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-}
-@media (max-width: 600px) {
-  .contact-info-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .page-hero { padding-top: 120px; }
+.form-input {
+  @apply w-full bg-surface border border-border-default rounded-lg px-4 py-3
+         text-sm text-text-primary placeholder-text-muted
+         focus:outline-none focus:border-teal/50 focus:ring-1 focus:ring-teal/25
+         transition-all duration-200;
 }
 </style>

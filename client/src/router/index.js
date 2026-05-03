@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import SoftwareEngineeringView from '@/views/SoftwareEngineeringView.vue'
+import SoftwareHouseView from '@/views/SoftwareHouseView.vue'
 import SoftwarePortfolioView from '@/views/SoftwarePortfolioView.vue'
 import CreativeStudioView from '@/views/CreativeStudioView.vue'
 import CreativePortfolioView from '@/views/CreativePortfolioView.vue'
@@ -12,48 +12,44 @@ const routes = [
     name: 'Home',
     component: HomeView,
     meta: {
-      title: 'Beranda | Multi-Solution — A Division of Fimosa Technology Indonesia',
-      description: 'Multi-Solution adalah divisi hibrida Fimosa Technology Indonesia yang menghadirkan solusi Software Engineering dan Creative Studio untuk korporasi, pemerintah, dan startup.'
+      title: 'Fimosa Multi-Solution — Your Strategic Partner in Digital & Creative Excellence',
+      description: 'A Strategic Division of PT Fimosa Technology Indonesia, delivering Software House and Creative Studio solutions for Corporate, Government, and Startups.'
     }
   },
   {
-    path: '/services',
-    redirect: '/services/software-engineering'
-  },
-  {
-    path: '/services/software-engineering',
-    name: 'SoftwareEngineering',
-    component: SoftwareEngineeringView,
+    path: '/software-house',
+    name: 'SoftwareHouse',
+    component: SoftwareHouseView,
     meta: {
-      title: 'Software Engineering | Multi-Solution — Fimosa Technology Indonesia',
-      description: 'Layanan Software Engineering profesional dari Multi-Solution: pengembangan website, sistem informasi enterprise, dan custom ERP dengan arsitektur terukur dan protokol keamanan industry-standard.'
+      title: 'Software House | Fimosa Multi-Solution',
+      description: 'Integrated Digital Engineering for Corporate & Government Ecosystems. Scalable ERP, System Information, and Custom Web Solutions.'
     }
   },
   {
-    path: '/services/software-engineering/portfolio',
+    path: '/software-house/portfolio',
     name: 'SoftwarePortfolio',
     component: SoftwarePortfolioView,
     meta: {
-      title: 'Portfolio Software Engineering | Multi-Solution',
-      description: 'Studi kasus dan portofolio proyek Software Engineering dari Multi-Solution — solusi enterprise yang telah diimplementasikan untuk korporasi dan institusi pemerintah.'
+      title: 'Software House Portfolio | Fimosa Multi-Solution',
+      description: 'Case studies and project portfolio from Fimosa Multi-Solution Software House — enterprise solutions for corporations and government institutions.'
     }
   },
   {
-    path: '/services/creative-studio',
+    path: '/creative-studio',
     name: 'CreativeStudio',
     component: CreativeStudioView,
     meta: {
-      title: 'Creative Studio | Multi-Solution — Fimosa Technology Indonesia',
-      description: 'Layanan Creative Studio profesional dari Multi-Solution: desain logo, identitas merek, ilustrasi digital, dan aset grafis untuk korporasi dan startup.'
+      title: 'Creative Studio | Fimosa Multi-Solution',
+      description: 'Bespoke Visual Identity for Startups & Corporations. Logo Design, Brand Identity, Illustration, and Brand Kits.'
     }
   },
   {
-    path: '/services/creative-studio/portfolio',
+    path: '/creative-studio/portfolio',
     name: 'CreativePortfolio',
     component: CreativePortfolioView,
     meta: {
-      title: 'Portfolio Creative Studio | Multi-Solution',
-      description: 'Galeri karya Creative Studio Multi-Solution — logo, branding, ilustrasi, dan aset visual untuk berbagai industri.'
+      title: 'Creative Studio Portfolio | Fimosa Multi-Solution',
+      description: 'Gallery of creative work from Fimosa Multi-Solution Creative Studio — logos, branding, illustrations, and visual assets.'
     }
   },
   {
@@ -61,14 +57,18 @@ const routes = [
     name: 'Contact',
     component: ContactView,
     meta: {
-      title: 'Hubungi Kami | Multi-Solution — Fimosa Technology Indonesia',
-      description: 'Konsultasikan kebutuhan digital Anda bersama tim Multi-Solution. Temukan lokasi kantor Fimosa Technology Indonesia dan ajukan inquiry proyek Anda.'
+      title: 'Contact Us | Fimosa Multi-Solution',
+      description: 'Consult your digital needs with the Fimosa Multi-Solution team. Start your project inquiry today.'
     }
   },
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/'
-  }
+  // Legacy redirects
+  { path: '/services',                             redirect: '/software-house' },
+  { path: '/services/software-engineering',        redirect: '/software-house' },
+  { path: '/services/software-engineering/portfolio', redirect: '/software-house/portfolio' },
+  { path: '/services/creative-studio',             redirect: '/creative-studio' },
+  { path: '/services/creative-studio/portfolio',   redirect: '/creative-studio/portfolio' },
+  // Catch-all
+  { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 const router = createRouter({
@@ -81,9 +81,8 @@ const router = createRouter({
   }
 })
 
-// Update page title & meta on route change
 router.afterEach((to) => {
-  document.title = to.meta.title || 'Multi-Solution | Fimosa Technology Indonesia'
+  document.title = to.meta.title || 'Fimosa Multi-Solution'
   const metaDesc = document.querySelector('meta[name="description"]')
   if (metaDesc) metaDesc.setAttribute('content', to.meta.description || '')
 })
