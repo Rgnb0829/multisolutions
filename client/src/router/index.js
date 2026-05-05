@@ -61,6 +61,35 @@ const routes = [
       description: 'Consult your digital needs with the Fimosa Multi-Solution team. Start your project inquiry today.'
     }
   },
+
+  // ── Admin Dashboard (Hidden) ──────────────────
+  {
+    path: '/ms-vault-2026',
+    component: () => import('@/layouts/AdminLayout.vue'),
+    meta: { title: 'Admin | Fimosa MS', isAdmin: true },
+    children: [
+      { path: '', redirect: '/ms-vault-2026/dashboard' },
+      {
+        path: 'dashboard',
+        name: 'AdminDashboard',
+        component: () => import('@/views/admin/AdminDashboardView.vue'),
+        meta: { title: 'Dashboard | Admin', isAdmin: true },
+      },
+      {
+        path: 'portfolio',
+        name: 'AdminPortfolio',
+        component: () => import('@/views/admin/AdminPortfolioView.vue'),
+        meta: { title: 'Portfolio Manager | Admin', isAdmin: true },
+      },
+      {
+        path: 'inbox',
+        name: 'AdminInbox',
+        component: () => import('@/views/admin/AdminInboxView.vue'),
+        meta: { title: 'Inquiry Inbox | Admin', isAdmin: true },
+      },
+    ],
+  },
+
   // Legacy redirects
   { path: '/services',                             redirect: '/software-house' },
   { path: '/services/software-engineering',        redirect: '/software-house' },

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "port-001",
+    "title": "HexaBrand Identity",
+    "category": "Logo",
+    "imageUrl": "",
+    "emoji": "⬡",
+    "description": "Complete brand identity system for a tech startup — logo mark, wordmark, and visual language.",
+    "client": "Tech Startup",
+    "bgGradient": "linear-gradient(135deg, #1a0533 0%, #2d0a5e 100%)",
+    "accentColor": "#c084fc",
+    "createdAt": "2024-12-15T10:00:00.000Z"
+  },
+  {
+    "id": "port-002",
+    "title": "AquaFlow Brand",
+    "category": "Branding",
+    "imageUrl": "",
+    "emoji": "🌊",
+    "description": "End-to-end brand development for a SaaS company — visual identity, typography, and color system.",
+    "client": "SaaS Company",
+    "bgGradient": "linear-gradient(135deg, #0a1a2e 0%, #0d3060 100%)",
+    "accentColor": "#38bdf8",
+    "createdAt": "2024-11-20T10:00:00.000Z"
+  },
+  {
+    "id": "port-003",
+    "title": "EcoVerda Identity",
+    "category": "Brand Kit",
+    "imageUrl": "",
+    "emoji": "🌿",
+    "description": "Sustainable brand identity with eco-friendly visual language for a green energy company.",
+    "client": "Sustainability Brand",
+    "bgGradient": "linear-gradient(135deg, #052e16 0%, #064e3b 100%)",
+    "accentColor": "#34d399",
+    "createdAt": "2024-10-05T10:00:00.000Z"
+  }
+]
